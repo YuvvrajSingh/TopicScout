@@ -1,0 +1,391 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Ripple-inspired glass utilities */
+@layer utilities {
+  .glass-ripple {
+    @apply backdrop-blur-[20px] bg-white/25 border border-white/40;
+    box-shadow: 0 8px 32px rgba(139, 92, 246, 0.15), 0 2px 8px rgba(139, 92, 246, 0.08);
+  }
+
+  .glass-premium {
+    @apply backdrop-blur-[20px] bg-white/30 border border-white/50;
+    box-shadow: 0 12px 40px rgba(139, 92, 246, 0.2), 0 4px 12px rgba(139, 92, 246, 0.12);
+  }
+
+  .glass-dreamy {
+    @apply backdrop-blur-[20px] bg-white/20 border border-white/35;
+    box-shadow: 0 16px 48px rgba(139, 92, 246, 0.18), 0 6px 16px rgba(139, 92, 246, 0.1);
+  }
+
+  .glass-fade-in {
+    animation: glass-fade-in 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .glass-lift-hover:hover {
+    transform: translateY(-4px);
+    @apply shadow-[0_16px_48px_rgba(139,92,246,0.25)] bg-white/35;
+  }
+
+  .glass-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glass-shimmer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2.5s infinite;
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4), 0 0 40px rgba(139, 92, 246, 0.2);
+  }
+}
+
+@keyframes glass-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    backdrop-filter: blur(20px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Custom gradient utilities for dreamy mesh background */
+@layer utilities {
+  .bg-gradient-radial {
+    background: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+
+  .bg-gradient-conic {
+    background: conic-gradient(var(--tw-gradient-stops));
+  }
+}
+
+/* Performance optimizations for mesh background */
+.mesh-gradient {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-float-reverse,
+  .animate-drift,
+  .animate-pulse-slow,
+  .animate-spin-slow,
+  .animate-spin-reverse {
+    animation: none;
+  }
+
+  .mesh-gradient {
+    will-change: auto;
+  }
+}
+
+/* High contrast mode fallback */
+@media (prefers-contrast: high) {
+  .bg-gradient-radial,
+  .bg-gradient-conic {
+    background: rgba(139, 92, 246, 0.1);
+  }
+
+  .glass-ripple,
+  .glass-premium,
+  .glass-dreamy {
+    background: rgba(255, 255, 255, 0.4);
+    border: 2px solid rgba(139, 92, 246, 0.6);
+  }
+}
+
+/* Dreamy mesh background animations with 400ms timing */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px) scale(1.03);
+  }
+  50% {
+    transform: translateY(-10px) translateX(-15px) scale(0.97);
+  }
+  75% {
+    transform: translateY(-25px) translateX(5px) scale(1.01);
+  }
+}
+
+@keyframes float-reverse {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+  }
+  25% {
+    transform: translateY(20px) translateX(-10px) scale(0.97);
+  }
+  50% {
+    transform: translateY(10px) translateX(15px) scale(1.03);
+  }
+  75% {
+    transform: translateY(25px) translateX(-5px) scale(0.99);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateX(30px) translateY(-20px) rotate(1deg);
+  }
+  66% {
+    transform: translateX(-20px) translateY(10px) rotate(-1deg);
+  }
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.25;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* Premium animation classes with 400ms timing */
+.animate-float {
+  animation: float 10s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 12s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+.animate-drift {
+  animation: drift 14s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 22s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 28s linear infinite;
+}
+
+/* Ripple-inspired typography colors */
+.text-primary-purple {
+  color: #4c1d95;
+}
+
+.text-secondary-purple {
+  color: #7c3aed;
+}
+
+.text-interactive-purple {
+  color: #8b5cf6;
+}
+
+.text-muted-purple {
+  color: #a855f7;
+}
+
+/* Premium spacing system (20px base unit) */
+.space-premium > * + * {
+  margin-top: 1.25rem; /* 20px */
+}
+
+.gap-premium {
+  gap: 1.25rem; /* 20px */
+}
+
+.p-premium {
+  padding: 1.25rem; /* 20px */
+}
+
+/* Elegant border system */
+.border-glass-light {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.border-glass-medium {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.border-glass-strong {
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+/* Purple-tinted shadow system */
+.shadow-purple-sm {
+  box-shadow: 0 2px 12px rgba(139, 92, 246, 0.08);
+}
+
+.shadow-purple {
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.15), 0 2px 8px rgba(139, 92, 246, 0.08);
+}
+
+.shadow-purple-lg {
+  box-shadow: 0 16px 48px rgba(139, 92, 246, 0.2), 0 6px 16px rgba(139, 92, 246, 0.12);
+}
+
+.shadow-purple-xl {
+  box-shadow: 0 24px 64px rgba(139, 92, 246, 0.25), 0 8px 20px rgba(139, 92, 246, 0.15);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for lavender theme */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.3);
+  border-radius: 5px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.5);
+}
+
+/* Focus states for accessibility */
+.focus-purple:focus {
+  outline: 2px solid rgba(139, 92, 246, 0.6);
+  outline-offset: 2px;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(139, 92, 246, 0.2);
+  color: #4c1d95;
+}
+
+/* Placeholder styling */
+::placeholder {
+  color: rgba(139, 92, 246, 0.5);
+}
