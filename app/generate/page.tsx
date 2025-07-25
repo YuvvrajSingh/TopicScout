@@ -1,7 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
+import { useSearchParams } from "next/navigation"
 import { ArrowLeft, Sparkles, Download, Settings, Zap, Mail, AlertCircle } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -19,6 +20,7 @@ import { EmailService } from "@/lib/email"
 import { PDFGenerator } from "@/lib/pdf"
 
 export default function GeneratePage() {
+  const searchParams = useSearchParams()
   const [keyword, setKeyword] = useState("")
   const [showSettings, setShowSettings] = useState(false)
   const [emailDialog, setEmailDialog] = useState(false)
@@ -28,6 +30,14 @@ export default function GeneratePage() {
     includeStats: true,
     targetAudience: "general",
   })
+
+  // Handle URL parameters for pre-filled keywords
+  useEffect(() => {
+    const keywordParam = searchParams.get('keyword')
+    if (keywordParam) {
+      setKeyword(decodeURIComponent(keywordParam))
+    }
+  }, [searchParams])
 
   const {
     isLoading,
