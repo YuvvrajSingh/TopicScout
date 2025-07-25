@@ -44,8 +44,8 @@ An AI-powered newsletter content generator that analyzes Reddit discussions and 
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/yourusername/topicscout-glass.git
-   cd topicscout-glass
+   git clone https://github.com/YuvvrajSingh/TopicScout.git
+   cd TopicScout
    ```
 
 2. **Install dependencies**

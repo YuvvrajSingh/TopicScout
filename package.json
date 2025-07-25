@@ -1,15 +1,15 @@
 {
-  "name": "topicscout-glass",
+  "name": "topicscout",
   "version": "1.0.0",
   "private": true,
   "description": "AI-powered newsletter content generator that analyzes Reddit discussions and creates professional newsletters",
   "keywords": ["nextjs", "ai", "newsletter", "reddit", "gemini", "content-generation"],
   "author": "Yuvraj Singh",
   "license": "MIT",
-  "homepage": "https://topicscout-glass.vercel.app",
+  "homepage": "https://topicscout.vercel.app",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/topicscout-glass.git"
+    "url": "https://github.com/YuvvrajSingh/TopicScout.git"
   },
   "scripts": {
     "build": "next build",

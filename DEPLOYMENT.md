@@ -2,9 +2,13 @@
 
 This guide will help you deploy TopicScout to Vercel successfully.
 
+## Quick Deploy to Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YuvvrajSingh/TopicScout)
+
 ## Prerequisites
 
-1. **GitHub Repository**: Push your code to GitHub
+1. **GitHub Repository**: [https://github.com/YuvvrajSingh/TopicScout](https://github.com/YuvvrajSingh/TopicScout)
 2. **Vercel Account**: Sign up at [vercel.com](https://vercel.com)
 3. **API Keys**: Gather all required API credentials
 
