@@ -3,7 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "description": "AI-powered newsletter content generator that analyzes Reddit discussions and creates professional newsletters",
-  "keywords": ["nextjs", "ai", "newsletter", "reddit", "gemini", "content-generation"],
+  "keywords": [
+    "nextjs",
+    "ai",
+    "newsletter",
+    "reddit",
+    "gemini",
+    "content-generation"
+  ],
   "author": "Yuvraj Singh",
   "license": "MIT",
   "homepage": "https://topicscout.vercel.app",
@@ -73,7 +80,6 @@
     "sonner": "^1.7.1",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
-    "vaul": "^0.9.6",
     "zod": "^3.24.1"
   },
   "devDependencies": {
