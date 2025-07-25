@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "deploy:prep": "echo 'Preparing for deployment...' && npm run type-check && echo 'TypeScript check passed!'",
+    "deploy:vercel": "vercel --prod",
+    "deploy:preview": "vercel"
+  }
+}

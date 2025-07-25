@@ -23,7 +23,7 @@ export const GlassButton = forwardRef<HTMLButtonElement, GlassButtonProps>(
         ref={ref}
         className={cn(
           // Smooth 400ms animations with elegant curves
-          "transition-all duration-400 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] font-medium tracking-wide",
+          "transition-all duration-500 ease-out font-medium tracking-wide",
           // Generous spacing (20px base unit)
           "px-6 py-3 text-base",
           // Elegant micro-interactions

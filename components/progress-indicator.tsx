@@ -20,7 +20,7 @@ export function ProgressIndicator({ currentStep }: ProgressIndicatorProps) {
         {/* Premium Progress Bar */}
         <div className="w-full bg-white/15 rounded-full h-3 backdrop-blur-sm border border-white/20">
           <div
-            className="bg-gradient-to-r from-purple-500 via-indigo-500 to-violet-500 h-3 rounded-full transition-all duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] shadow-lg shadow-purple-500/25"
+            className="bg-gradient-to-r from-purple-500 via-indigo-500 to-violet-500 h-3 rounded-full transition-all duration-700 ease-out shadow-lg shadow-purple-500/25"
             style={{ width: `${((currentStep + 1) / steps.length) * 100}%` }}
           />
         </div>

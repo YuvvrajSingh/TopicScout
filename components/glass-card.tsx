@@ -19,7 +19,7 @@ export function GlassCard({ children, className }: GlassCardProps) {
         // Elegant hover states with purple glow
         "hover:bg-white/30 hover:border-white/50 hover:shadow-[0_12px_40px_rgba(139,92,246,0.20),0_4px_12px_rgba(139,92,246,0.12)]",
         // Smooth 400ms animations
-        "transition-all duration-400 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]",
+        "transition-all duration-500 ease-out",
         // Generous spacing
         "relative overflow-hidden",
         className,

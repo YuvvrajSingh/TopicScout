@@ -7,7 +7,14 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    domains: [],
+    unoptimized: false,
+  },
+  experimental: {
+    optimizePackageImports: ['lucide-react', '@radix-ui/react-*'],
+  },
+  env: {
+    CUSTOM_KEY: process.env.CUSTOM_KEY,
   },
 }
 

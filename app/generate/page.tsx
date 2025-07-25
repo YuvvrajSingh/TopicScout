@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
 import { ArrowLeft, Sparkles, Download, Settings, Zap, Mail, AlertCircle } from "lucide-react"
@@ -19,7 +19,7 @@ import { useAnalysis } from "@/hooks/use-analysis"
 import { EmailService } from "@/lib/email"
 import { PDFGenerator } from "@/lib/pdf"
 
-export default function GeneratePage() {
+function GeneratePageContent() {
   const searchParams = useSearchParams()
   const [keyword, setKeyword] = useState("")
   const [showSettings, setShowSettings] = useState(false)
@@ -369,5 +369,23 @@ export default function GeneratePage() {
         </Dialog>
       </div>
     </div>
+  )
+}
+
+export default function GeneratePage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen relative overflow-hidden">
+        <MeshBackground />
+        <div className="relative z-10 flex items-center justify-center min-h-screen">
+          <div className="text-center">
+            <Sparkles className="h-12 w-12 text-purple-600 mx-auto mb-4 animate-spin" />
+            <p className="text-purple-600 font-medium">Loading...</p>
+          </div>
+        </div>
+      </div>
+    }>
+      <GeneratePageContent />
+    </Suspense>
   )
 }
